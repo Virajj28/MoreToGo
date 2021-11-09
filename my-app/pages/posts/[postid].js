@@ -12,12 +12,18 @@ export default Post;
 
 export async function getStaticPaths() {
     return {
-        props: {
             paths: [
                 {
-                    params: { postId: '1' }
-                }
-            ]
+                    params: { postId: '1' },
+                },
+                {
+                    params: { postId: '2' },
+                },
+                {
+                    params: { postId: '3' },
+                },
+            ],
+            fallback: false,
     }
 }
 
@@ -29,7 +35,7 @@ export async function getStaticProps(context) {
     return {
         props: {
              // this will be passed to the page component as props
-            post:data
+            post:data,
         }
     }
 }
